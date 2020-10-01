@@ -1,0 +1,204 @@
+<!-- saved from url=(0071)http://www.cs.bu.edu/faculty/betke/cs440/restricted/p1/p1-template.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> CS440 Computer Vision: HW[2] Student Name [Edward Yun]  </title>
+<style>
+<!--
+body{
+font-family: 'Trebuchet MS', Verdana;
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+}
+h3{
+margin: 5px;
+}
+h2{
+margin: 10px;
+}
+h1{
+margin: 10px 0px 0px 20px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+-->
+</style>
+</head>
+ 
+<body>
+<center>
+<a href="http://www.bu.edu/"><img border="0" src="./pa2img/bu-logo.gif" width="119" height="120"></a>
+</center>
+ 
+<h1>Computer Vision</h1>
+<p>
+ CS 440/640 Programming assignment 2 <br>
+ Edward Yun <br>
+ Eric Chang <br>
+    Date April 2, 2019
+</p>
+ 
+<div class="main-body">
+<hr>
+<h2> Problem Definition </h2>
+<p>
+ 
+We are tasked on designing and implementing algorithms to recognize at least three hand shapes and movements. And then to graphically represent our results in the form of a confusion matrix. This is useful so we can observe just how accurate our camera is at detecting and stating what these different shapes and gestures our hands make. We assume that we have the tools necessairy to complete this task, and that our webcam will be able to work well with our code. Some difficulties we anticipate is coding it so that our camera can detect the difference between a skin colored background and our actual skin.
+</p>
+ 
+<hr>
+<h2> Method and Implementation </h2>
+<p>
+  The techniques, we are using frame differencing, template matching, skin color detection, and motion energy. We decided on these techniques as by using template matching we have a better way of identifying our hand in the shape of a fist or an open hand for rock, paper, and waving. Skin color detection is used to rightfully identify a person's hand based on skin color. Frame differencing will help us detect the different frames in a motion. And lasty motion energy uses those different frames to identify our dynamic waving motion of the hand.
+</p>
+<p>
+ 
+<p>
+Template matching- We used a black and white photo of our hand and compared our hand to the the template and we would print something if it matches or not.
+</p>
+<p>
+Skin color detection- We utilized the code we used in lab 7.
+</p>
+<p>
+Frame differencing- We ustilized the code we used in lab 7.
+</p>
+<p>
+Motion energy- We utilized the code we used in lab 7.
+</p>
+ 
+</p>
+ 
+<hr>
+<h2>Experiments</h2>
+<p>
+Our experiments consisted of us recording us doing our hand gestures and showcasing our different techniques working. We then tested each one 20 times including other and not recognizable to make a confusion matrix for paper, rock, and waving. </p>
+<p>
+ 
+We then manually made a confusion matrix of our positives, false positives, and etc. within 100 total trials to show the accuracy of our system. </p>
+ 
+ 
+<hr>
+<h2> Results</h2>
+<p>
+List your experimental results.  Provide examples of input images and output
+images. If relevant, you may provide images showing any intermediate steps.  If
+your work involves videos, do not submit the videos but only links to them.
+</p>
+ 
+<p>
+<table>
+<tbody><tr><td colspan="3"><center><h3>Results</h3></center></td></tr>
+<tr>
+  <td> Complete Matrix </td>
+  <td> <img src="./pa2img/matrix.png"> </td>
+</tr>  
+<tr>
+<td> Trial </td><td> Positive </td> <td> Negative(s)</td> <td>Confusion Matrix</td>
+</tr>
+<tr>
+  <td> Rock </td>
+  <td> <img src="./pa2img/rock_positive.png"> </td>
+  <td> <img src="./pa2img/rock_negative.png"> </td>
+  <td> <img src="./pa2img/rock_matrix.png"> </td>
+</tr>
+<tr>
+  <td> Paper </td>
+  <td> <img src="./pa2img/paper_positive.png"> </td>
+ 
+  <td> <img src="./pa2img/paper_negative3.png"> </td>
+  <td> <img src="./pa2img/paper_matrix.png"> </td>
+</tr>
+<tr>
+  <td> Waving </td>
+  <td> <img src="./pa2img/waving_positive.gif"> </td>
+  <td> <img src="./pa2img/waving_negative.gif"> </td>
+  <td> <img src="./pa2img/waving_matrix.png"> </td>
+</tr>
+</tbody></table>
+</p>
+ 
+ 
+ 
+<hr>
+<h2> Discussion </h2>
+ 
+<p>
+Discuss your method and results:
+</p><ul>
+<li>Strengths of our method is that we are able to utilize background differencing, skin color detection, and motion energy.
+ 
+A major weakness we found with our template is that we would need to be in the near exact orientation of the template for it to be recognized more accurately, however it still is able to recognize most of it.
+ 
+ 
+ 
+</li>
+<li>
+   Our results show that our method is generally successful, but there are some limitations as paper tends to be wrongly stated more than rock does which could be due to the fact that our code recognizes that some fingers up is an open hand and is paper, or that rock is a hand and is paper at times. And sometimes our camera has a hard time registering the difference between a waving motion and just a paper being shown. Another major limitation we noticed is that on a different higher quality webcam our code gets a little finiky as the camera is able to detect more than we were working with so there are more errors than on our working machine. This changed what we expected to find on other machines, but on ours we got the results we expected besides the few negatives we got. And another limitation is that if you wave too fast it is hard to identify that a hand is waving. Lastly, we only used one image as a template for each gesture which could have impacted our accuricies.</li>
+<li>
+For future work we could implement scissors as well to make a full rock paper scissors game. We could also try to make it more accurate and work better with any webcams regardless of their different qualities and lighting angles/backgrounds. And lastly, we could try to get our motion gesture to more accurately be detected.</li>
+</ul>
+<p></p>
+ 
+<hr>
+<h2> Conclusions </h2>
+ 
+<p>
+ 
+Our method is able to identify 1. An open hand (paper), 2. A fist (rock), 3. A waving hand. Rock precision: 14/27, recall: 14/20 , and F-1 scores: .644 ; Paper precision: 12/16, recall:12/20 , and F-1 score:.66 ; and Waving precision: 7/12, recall: 7/20 , and F-1 score: .4375.
+ 
+<p>Pre-Processing</p>
+<li>
+- Captured and set up the template images </li>
+<li>
+- Set up functions for use to process images (Frame differencing, Motion Energy, Skin RGB Detection)
+</li>
+<p>Recognition</p>
+<li>
+- Capture live feed from camera
+</li>
+<li>
+- Set a rectanglular area where we will detect hand gestures
+</li>
+<li>
+ 
+- Changed image to use white pixels for skin colored pixels of captured feed
+</li>
+<li>
+ 
+- Used CV2.TM_CCOEFF_NORMED for template matching function with Thresholds of 0.6 for Static Gestures and 0.4 for Dynamic Gestsure
+</li>
+<li>
+ 
+- Frame Differencing + Motion Energy/History to compare to template of dynamic gesture(Waving)
+</li>
+<p>Post-Processing</p>
+<li>
+- Tested 20 trials each for Paper, Rock, Waving, Other, and Not Recognized
+</li>
+<li>
+- Created Confusion Matrix for Paper, Rock, and Waving and calculated Precision, Recall, and F-1 Scores for respective Gestures
+</li>
+</p>
+ 
+ 
+<hr>
+<h2> Credits and Bibliography </h2>
+<p>
+ 
+<p>
+Credit any joint work or discussions with your classmates.
+Worked with: Eric Chang
+</p>
+<hr>
+</div>
+ 
+ 
+ 
+ 
+ 
+</body></html><!-- 
